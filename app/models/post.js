@@ -6,8 +6,8 @@ var mongoose = require('mongoose');
 
 var postSchema = mongoose.Schema({
   meta          : {
-    date        : Date,
-    time        : Date,
+    timePassed  : String,
+    timePosted  : String,
     content     : String,
     user        : String,
     location    : String

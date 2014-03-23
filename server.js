@@ -9,6 +9,10 @@ var passport    = require('passport');
 var flash       = require('connect-flash');
 var configDB    = require('./config/database.js');
 
+
+//helper modules
+var Meta        = require('./app/helpers/meta');
+
 mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);
@@ -35,22 +39,54 @@ require('./app/routes.js')(app, passport);
 
 //sockets
 
-var Post = require('./app/models/post')
+var Post = require('./app/models/post');
 
 app.io.route('connect', function(req){
   console.log('yay online!');
+  var fetch = [];
+  Post.find({}, {meta: 1, _id: 0}, function(err, posts) {
+    if(err) {
+      return err;
+    } else {
+      fetch = posts;
+      for(var i in fetch){
+          if(fetch[i].meta.user&&fetch[i].meta.content){
+          var update = { uid: String, message: String};
+          update.uid = fetch[i].meta.user;
+          update.message = fetch[i].meta.content;
+          req.io.emit('update-tiles', update);
+        }
+      }
+    }
+  });
+  // req.io.emit('update-tiles')
 });
 
 
 app.io.route('send-post', function(req){
   console.log(req.data);
+  req.io.broadcast('update-tiles', req.data);
   req.io.emit('update-tiles', req.data);
-
+  var postMeta = new Meta();
   var newPost = new Post();
-  newPost.save(function(err){
-    if(err) throw err;
-    return done(null, newPost);
-  })
+
+  console.log(newPost);
+
+  newPost.meta.timePassed = postMeta.getDate();
+  newPost.meta.timePosted = postMeta.getTime();
+  newPost.meta.content = req.data.message;
+  newPost.meta.user = req.data.uid;
+  newPost.meta.location = 'notYetHookedUp';
+
+  console.log(newPost);
+
+  newPost.save(function (err) {
+    if (!err) {
+      return console.log('new post saved to DB');
+    } else {
+      return console.log(err);
+    }
+  });
 
 });
 
