@@ -1,12 +1,12 @@
 'use strict';
 
-var express     = require('express');
+var express     = require('express.io');
+var cons        = require('consolidate');
 var app         = express();
 var port        = process.env.PORT || 8888;
 var mongoose    = require('mongoose');
 var passport    = require('passport');
 var flash       = require('connect-flash');
-
 var configDB    = require('./config/database.js');
 
 
@@ -20,7 +20,8 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.bodyParser());
 
-  app.set('view engine', 'ejs');
+  app.engine('html', cons.handlebars);
+  app.set('view engine', 'html');
 
   app.use(express.session({secret: process.env.CHAT_APP_SECRET}));
   app.use(passport.initialize());
