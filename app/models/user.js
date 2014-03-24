@@ -3,6 +3,7 @@
 //app/models/user.js
 
 var mongoose    = require('mongoose');
+var Schema      = mongoose.Schema;
 var bcrypt      = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
@@ -22,8 +23,16 @@ var userSchema = mongoose.Schema({
     token        : String,
     displayName  : String,
     username     : String
-  }
+  },
+  org: { type: Schema.ObjectId },
+  loc: { type: {type: String}, coordinates: [] },
+  lastloc: { type: Date },
+  session: { type: String }
+
 });
+
+
+userSchema.index({loc: '2dsphere'});
 
 userSchema.methods.generateHash = function(password){
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
