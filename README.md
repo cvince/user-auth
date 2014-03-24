@@ -1,4 +1,4 @@
 user-auth
 =========
 
-first user authentication for nodejs
+User authenticated chat app with Passport.js, using socket.io persistent connections
