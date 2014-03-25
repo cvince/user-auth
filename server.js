@@ -44,11 +44,11 @@ var Message = require('./app/models/message');
 app.io.route('connect', function(req){
   console.log('yay online!');
   var fetch = [];
-  Message.find({}, {meta: 1, _id: 0}, function(err, posts) {
+  Message.find({}, {meta: 1, _id: 0}, function(err, messages) {
     if(err) {
       return err;
     } else {
-      fetch = posts;
+      fetch = messages;
       for(var i in fetch){
           if(fetch[i].meta.user&&fetch[i].meta.content){
           var update = { uid: String, message: String};
@@ -64,7 +64,6 @@ app.io.route('connect', function(req){
 
 
 app.io.route('send-post', function(req){
-  console.log(req.data);
   req.io.broadcast('update-tiles', req.data);
   req.io.emit('update-tiles', req.data);
   var postMeta = new Meta();
