@@ -4,8 +4,8 @@ node_js:
 services: mongodb
 before_install:
 - npm install -g grunt-cli
-- npm install
 install:
+- npm install
 before_script:
 env:
   global:
