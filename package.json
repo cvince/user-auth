@@ -66,5 +66,5 @@
   },
   "scripts": {
     "test": "mkdir -p build && grunt travis --trace --verbose"
-  },
+  }
 }
