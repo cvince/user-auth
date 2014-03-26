@@ -44,7 +44,7 @@ var Message = require('./app/models/message');
 app.io.route('connect', function(req){
   console.log('yay online!');
   var fetch = [];
-  Message.find({}, {meta: 1, _id: 0}, function(err, messages) {
+  Message.find({'meta': String(req.params.data.meta)}, {meta: 1, _id: 0}, function(err, messages) {
     if(err) {
       return err;
     } else {
