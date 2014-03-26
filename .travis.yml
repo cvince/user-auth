@@ -3,9 +3,8 @@ node_js:
 - '0.10'
 services: mongodb
 before_install:
-- npm install -g grunt-cli
-install:
 - npm install
+install:
 before_script:
 env:
   global:
