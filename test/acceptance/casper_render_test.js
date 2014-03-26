@@ -3,7 +3,7 @@
 
 casper.test.begin('testing our REST API', 1, function suite(test) {
 
-  casper.start('http://localhost:8888', function() {
+  casper.start('http://www.google.com', function() {
     test.assertHttpStatus(200);
   });
 
