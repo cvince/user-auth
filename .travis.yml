@@ -13,4 +13,4 @@ env:
 notifications:
   irc:
     channels:
-      - "chat.freenode.net#codefellows"
+      - "chat.freenode.net#spacelab"
