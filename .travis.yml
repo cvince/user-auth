@@ -2,13 +2,13 @@ language: node_js
 node_js:
 - '0.10'
 services: mongodb
-before_install: 
-install: 
-before_script: 
+before_install:
+install:
+before_script:
 env:
   global:
     secure: jXkWwPVzM9bVC0gwjwhW4Z2sSrcrH7CxmDUp+mnPUEAb0Bg/sgfsntW0MprpxDSR5UdySOF/+TXuPkRN2u86us1KEBQT7l9Ckh39H10eRCVTAAttjoEx5VGZjhbRDlO2V34e6lTrQo6SGSpROuN3LIUMqRns4/wGg41eSIJYVww=
 notifications:
   irc:
     channels:
-    - chat.freenode.net#spacelab
+    - "chat.freenode.net#spacelab"
