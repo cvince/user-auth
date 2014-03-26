@@ -6,11 +6,11 @@ before_install:
 - npm install -g grunt-cli
 install:
 - npm install
-before_script:
+before_script: 
 env:
   global:
-    secure: AwSVtVbMdaYPCY7zpikZS86pcgFxOAqWUpXlwku445YK/Immx4MJ3ArJXVU2R96xYO5LgPL9QEd+hFDzr2QkXKYraXtfG0OD07vJ0+vpNbMIgIPi4ya0OFcY11RVecaYAyz9CUQr5x72+5ZOmLulLDBj5MCz9jWyax2kYVKtu2U=
+    secure: p5XfPMMLOvlfk1BONxvtXdAaWft/HLWkO4rzrRWr+YQkDCDj9rcy50gyZxtKlAzWhPlWTS8fA5Kg+qOdW4JNTF5Dj0yvT03bC9fDfZycwjU7SBzn+c0iGSCvSO7i8kXeGJ/htgc9oBQOcBWpSg5rZDQqwvSfmxKDl0W19WD8bBw=
 notifications:
   irc:
     channels:
-      - "chat.freenode.net#spacelab"
+    - chat.freenode.net#spacelab
