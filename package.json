@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "User Authentication with Chat App",
   "main": "server.js",
-  "scripts": {
-    "test": "mkdir -p build && grunt travis --trace --verbose"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cvince/user-auth.git"
@@ -66,5 +63,8 @@
         "test"
       ]
     }
-  }
+  },
+  "scripts": {
+    "test": "mkdir -p build && grunt travis --trace --verbose"
+  },
 }
