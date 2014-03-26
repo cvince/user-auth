@@ -2,19 +2,13 @@ language: node_js
 node_js:
 - '0.10'
 services: mongodb
-before_install:
-- npm install -g grunt-cli
-- npm install -g bower
-install:
-- npm install
-- bower install
-before_script:
-- grunt mongoimport
-- grunt build:dev
+before_install: 
+install: 
+before_script: 
 env:
   global:
-    secure: AwSVtVbMdaYPCY7zpikZS86pcgFxOAqWUpXlwku445YK/Immx4MJ3ArJXVU2R96xYO5LgPL9QEd+hFDzr2QkXKYraXtfG0OD07vJ0+vpNbMIgIPi4ya0OFcY11RVecaYAyz9CUQr5x72+5ZOmLulLDBj5MCz9jWyax2kYVKtu2U=
+    secure: jXkWwPVzM9bVC0gwjwhW4Z2sSrcrH7CxmDUp+mnPUEAb0Bg/sgfsntW0MprpxDSR5UdySOF/+TXuPkRN2u86us1KEBQT7l9Ckh39H10eRCVTAAttjoEx5VGZjhbRDlO2V34e6lTrQo6SGSpROuN3LIUMqRns4/wGg41eSIJYVww=
 notifications:
   irc:
     channels:
-      - "chat.freenode.net#codefellows"
+    - chat.freenode.net#spacelab
