@@ -60,7 +60,7 @@
   "config": {
     "blanket": {
       "pattern": [
-        "api"
+        "app"
       ],
       "data-cover-never": [
         "node_modules",
