@@ -8,10 +8,10 @@ var chai = require('chai'),
 describe('Users JSON fetch', function(){
 
   it('has users', function(){
-    var query = User.count(function(err, data){ console.log(data); });
+    var query = User.count(function(err, data){ console.log(err, data); });
     query.exec(function (err, docs) {
       console.log('during exec');
-      console.log(docs);
+      console.log(err, docs);
     });
 
     expect(1).to.be.above(0);

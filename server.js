@@ -50,7 +50,7 @@ app.io.route('connect', function(req){
     } else {
       fetch = messages;
       for(var i in fetch){
-          if(fetch[i].meta.user&&fetch[i].meta.content){
+        if(fetch[i].meta.user&&fetch[i].meta.content){
           var update = { uid: String, message: String};
           update.uid = fetch[i].meta.user;
           update.message = fetch[i].meta.content;
