@@ -91,5 +91,5 @@ app.io.route('send-post', function(req){
 
 
 //listen
-app.listen(port);
-console.log('online at port '+port);
+app.listen(8888);
+console.log('online at port 8888');
